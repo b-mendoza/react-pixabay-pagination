@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 
-import { PixabayContext } from '../context/PixabayContext';
-import { addSearch } from '../actions/actions';
+import PixabayContext from '../context/PixabayContext';
+import { addSearch, resetActualPage } from '../actions/actions';
 import { isValid } from '../helpers/isValid';
 import { useForm } from '../hooks/useForm';
 
@@ -21,6 +21,7 @@ const Form = () => {
             return;
         } else setError(false);
 
+        dispatch(resetActualPage());
         dispatch(addSearch(search));
     };
 
